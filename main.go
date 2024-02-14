@@ -1,17 +1,21 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/heitorlimamorei/portifolio-go-api/config"
 	"github.com/heitorlimamorei/portifolio-go-api/router"
 )
 
+var (
+	logger *config.Logger
+)
+
 func main() {
-	err := config.Init()
+	logger = config.GetLogger("main")
+
+	err := config.InitDb()
 
 	if err != nil {
-		fmt.Println(err)
+		logger.ErrorF("config initialization error %v", err)
 		panic(err)
 	}
 
