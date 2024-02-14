@@ -60,9 +60,23 @@ POST /opening
     "link": "https://example.com/job/software-engineer",
     "company": "TechCo"
 }
+```
 
+### Get All Job Openings
+
+```http
 GET /openings
+```
 
+### Get Job Opening by ID
+
+```http
+GET /opening/:id
+```
+
+### Update Job Opening
+
+```http
 PUT /opening/:id
 {
     "role": "Software Engineer",
@@ -72,6 +86,10 @@ PUT /opening/:id
     "link": "https://example.com/job/software-engineer",
     "company": "TechCo"
 }
+```
 
+### Delete Job Opening
+
+```http
 DELETE /opening/:id
 ```
