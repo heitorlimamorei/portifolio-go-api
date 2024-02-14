@@ -4,23 +4,18 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/heitorlimamorei/portifolio-go-api/config"
+	"gorm.io/gorm"
+)
+
+var (
+	logger *config.Logger
+	db     *gorm.DB
 )
 
 func GetOpeningHandler(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, gin.H{
 		"message": "GET Opening",
-	})
-}
-
-func GetOpeningsHandler(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, gin.H{
-		"message": "GET Openings",
-	})
-}
-
-func CreateOpeningHandler(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, gin.H{
-		"message": "POST Opening",
 	})
 }
 
@@ -30,8 +25,7 @@ func UpdateOpeningHandler(ctx *gin.Context) {
 	})
 }
 
-func DeleteOpeningHandler(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, gin.H{
-		"message": "DELETE Opening",
-	})
+func InitHandlers() {
+	logger = config.GetLogger("handlers")
+	db = config.GetSqlite()
 }
