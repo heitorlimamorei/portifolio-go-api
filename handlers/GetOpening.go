@@ -8,7 +8,7 @@ import (
 	"github.com/heitorlimamorei/portifolio-go-api/schemas"
 )
 
-func DeleteOpeningHandler(ctx *gin.Context) {
+func GetOpeningHandler(ctx *gin.Context) {
 	id := ctx.Param("id")
 	if id == "" {
 		sendError(ctx, http.StatusBadRequest, "id is required")
@@ -21,6 +21,5 @@ func DeleteOpeningHandler(ctx *gin.Context) {
 		return
 	}
 
-	db.Delete(&opening, id)
-	sendSucess(ctx, "delete-opening", nil)
+	sendSucess(ctx, "delete-opening", opening)
 }

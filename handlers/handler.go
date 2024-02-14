@@ -13,12 +13,6 @@ var (
 	db     *gorm.DB
 )
 
-func GetOpeningHandler(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, gin.H{
-		"message": "GET Opening",
-	})
-}
-
 func UpdateOpeningHandler(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, gin.H{
 		"message": "UPDATE Opening",
